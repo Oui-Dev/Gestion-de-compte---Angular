@@ -1,0 +1,51 @@
+<h1>{{ account }}</h1>
+<div id="bankDisplay">
+    <app-table *ngIf='tableLoading' [data]='dataSource' [tableColumn]='modelList' (userSelection)="setButtonState($event)"></app-table>
+    <form [formGroup]="registerForm" *ngIf="formLoading" (ngSubmit)="onSubmit($event)">
+        <div>
+            <mat-form-field>
+                <mat-label>Date</mat-label>
+                <input type="date" formControlName="date" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Info</mat-label>
+                <input type="text" formControlName="info" matInput placeholder="Ex : Amazon">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="Cartes">Cartes</mat-option>
+                    <mat-option value="Chèques">Chèques</mat-option>
+                    <mat-option value="Espèces">Espèces</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Montant</mat-label>
+                <input type="number" formControlName="prix" matInput placeholder="Ex : 10.95">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-radio-group aria-label="Select an option" >
+                <div>
+                    <input type="radio" id="lessRadio" value="-" formControlName="action">
+                    <label for="lessRadio">Dépense</label>
+                </div>
+                <div>
+                    <input type="radio" id="moreRadio" value="+" formControlName="action">
+                    <label for="moreRadio">Revenu</label>
+                </div>
+            </mat-radio-group>
+
+            <button mat-flat-button type="submit" value="Ajouter" [disabled]="add_BTN">Ajouter</button>
+        </div>
+        <div>
+            <button mat-flat-button type="submit" value="Modifier" [disabled]="edit_BTN">Modifier</button>
+            <button mat-flat-button type="submit" value="Supprimer" class="warningBtn" [disabled]="del_BTN">Supprimer</button>
+        </div>
+        <input type="hidden" formControlName="row">
+        <mat-divider></mat-divider>
+        <p>Solde : {{ solde }}€</p>
+    </form>
+</div>

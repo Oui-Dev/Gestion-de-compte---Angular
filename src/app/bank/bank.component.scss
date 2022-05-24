@@ -1,0 +1,82 @@
+:host {
+    width: 100%;
+}
+#bankDisplay {
+    margin-top: 20px;
+    display: flex;
+    gap: 25px;
+}
+app-table {
+    width: 80%;
+}
+mat-radio-group {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 20%;
+    background-color: #fafafa;
+    border-radius: 7px;
+    padding: 10px;
+    padding-top: 20px;
+}
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+form p {
+    color: black;
+    font-size: larger;
+}
+button {
+    background-color: #1976d2;
+    color: white;
+    width: 100%;
+    padding: 4px 0;
+    margin-bottom: 10px;
+}
+.warningBtn {
+    background-color: red;
+}
+mat-form-field {
+    width: 100%;
+    color: #000000;
+}
+
+::ng-deep{
+    .mat-simple-snackbar-action{
+        color: #3089e2 !important;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #bankDisplay {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    form {
+        width: calc(100% - 20px);
+    }
+    form > div {
+        flex-direction: row;
+        gap: 5px;
+        width: 100%;
+        align-items: center;
+    }
+    form > div > * {
+        width: 50%;
+    }
+    mat-radio-group, button {
+        margin-bottom: 0;
+    }
+    app-table {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}

@@ -1,0 +1,18 @@
+<h1>Ajout d'un compte</h1>
+<form [formGroup]="registerForm" *ngIf="formLoading" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input type="text" formControlName="nom" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Solde initial (€)</mat-label>
+        <input type="number" formControlName="solde" matInput>
+        <!-- <mat-error>Montant invallide</mat-error> -->
+    </mat-form-field>
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Type de compte</mat-label>
+        <input type="text" formControlName="type" matInput>
+    </mat-form-field> -->
+
+    <button mat-flat-button type="submit">Ajouter</button>
+</form>

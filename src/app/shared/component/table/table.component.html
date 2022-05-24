@@ -1,0 +1,24 @@
+<div id="tableContainer" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="simple-table">
+        <!-- Column Generator -->
+        <ng-container *ngFor="let line of tableColumn" 
+            [matColumnDef]="line['columnDisplay']">
+            <th mat-header-cell *matHeaderCellDef> {{line['title']}} </th>
+            <td mat-cell [ngClass]="{
+                'revenu':element['action']=='+' && line['columnDisplay']=='montant',
+                'depense':element['action']=='-' && line['columnDisplay']=='montant'
+            }" *matCellDef="let element"> {{element[line["value"]]}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" 
+            (click)="selectRow(selectedRow === row ? null : row)" [ngClass]="{ 'selected': row === selectedRow }">
+        </tr>
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator [pageSizeOptions]="[10, 20, 50]"
+                 showFirstLastButtons 
+                 aria-label="Select page">
+    </mat-paginator>
+</div>

@@ -1,0 +1,51 @@
+.simple-table {
+    width: 100%;
+    text-align: left;
+}
+#tableContainer{
+    height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 7px;
+    padding: 7px;
+}
+
+.revenu:before{
+    content: "+";
+}
+.revenu{
+    color: rgb(0, 192, 0);
+}
+.depense:before{
+    content: "-";
+}
+.depense{
+    color: rgb(255, 25, 25);
+}
+
+.selected {
+    // background-color: rgb(25, 118, 210);
+    background-color: rgba(0, 128, 255, 0.4)
+}
+
+.mat-column-demo-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+}
+
+.mat-column-demo-name {
+    padding-left: 16px;
+    font-size: 20px;
+}
+
+.mat-column-demo-weight {
+    font-style: italic;
+}
+
+.mat-column-demo-symbol {
+    width: 32px;
+    text-align: center;
+    font-weight: bold;
+}
